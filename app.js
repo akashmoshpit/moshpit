@@ -23,7 +23,7 @@ const app = express();
 /* Users page redirect to routes to furthur call functions*/
 const users = require('./routes/users');
 /* Port to run on server*/
-const port = 3000;
+const port = 9000;
 /*CORS middleware*/
 app.use(cors());
 /*body parse*/
@@ -45,6 +45,6 @@ res.send("here we go");
 
 app.listen(port,()=>{
 
-	console.log("Server started on port 3000");
+	console.log("Server started on port 9000");
 
 });
