@@ -51,7 +51,18 @@ router.post("/register" , (req,res,next) =>{
 			
 			res.json({success: false, msg: err});
 		}else{
-			res.json({success:true, msg: ' User registered successfully!!'});
+			/*generated JWT token here*/
+			const token = jwt.sign({data:user}, config.secret, {
+				 expiresIn:604800 //A week login
+			});
+
+			res.json({
+				success:true,
+				token: 'Bearer '+token,
+				success:true, msg: ' User registered successfully!!'
+				
+			});
+			/*res.json({success:true, msg: ' User registered successfully!!'});*/
 		}
 	});
     });
